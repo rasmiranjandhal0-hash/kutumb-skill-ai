@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KutumbSkill AI | योजना प्रशासक डैशबोर्ड (Scheme Admin Resistance Heatmap)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- TOP BAR -->
+  <div class="bg-purple-900 text-white text-xs font-semibold px-4 py-1.5 flex justify-between items-center tracking-wide">
+    <div class="flex items-center space-x-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>योजना प्रशासक पोर्टल | MSDE / NSDC / State Skill Development Mission (SSDM)</span>
+    </div>
+    <div class="flex items-center space-x-3 text-[11px]">
+      <span class="bg-purple-800 px-2 py-0.5 rounded">डेटा स्रोत: NCVET & NCrF</span>
+      <span class="hidden sm:inline">सुरक्षित प्रशासनिक सत्र</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand -->
+      <a href="/" class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-purple-700 flex items-center justify-center text-white shadow-md">
+          <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-1.5">
+            <span class="text-xl font-extrabold tracking-tight text-slate-900">कुटुंब<span class="text-purple-600">Admin</span></span>
+            <span class="text-xs bg-purple-100 text-purple-800 font-bold px-1.5 py-0.5 rounded uppercase">Heatmap</span>
+          </div>
+          <p class="text-[10px] text-slate-500 font-medium">पारिवारिक प्रतिरोध व सेंटिमेंट विश्लेषण</p>
+        </div>
+      </a>
+
+      <!-- Page Links -->
+      <nav class="hidden md:flex items-center space-x-1 bg-slate-100 p-1 rounded-xl text-xs font-bold">
+        <a href="/" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>परामर्श चैट</span>
+        </a>
+        <a href="/room" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="users" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>ग्रुप रूम</span>
+        </a>
+        <a href="/calculator" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+          <span>कैलकुलेटर</span>
+        </a>
+        <a href="/trades" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+          <span>ट्रेड्स</span>
+        </a>
+        <a href="/admin" class="px-3 py-1.5 rounded-lg bg-white text-purple-700 shadow-xs flex items-center space-x-1">
+          <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+          <span>एडमिन</span>
+        </a>
+      </nav>
+
+      <!-- Action -->
+      <div class="flex items-center space-x-2">
+        <button onclick="window.print()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">रिपोर्ट प्रिंट करें</span>
+        </button>
+        <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-xs">
+          <span>उपयोगकर्ता ऐप पर जाएं</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION TABS -->
+  <div class="md:hidden bg-white border-b border-slate-200 px-3 py-2 flex items-center space-x-1 overflow-x-auto text-xs">
+    <a href="/" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">💬 AI चैट</a>
+    <a href="/room" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">👥 ग्रुप रूम</a>
+    <a href="/calculator" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">⚖️ कैलकुलेटर</a>
+    <a href="/trades" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">📋 ट्रेड्स</a>
+    <a href="/admin" class="px-3 py-1 rounded-lg font-bold text-purple-700 bg-purple-50 whitespace-nowrap">📊 डैशबोर्ड</a>
+  </div>
+
+  <!-- MAIN ADMIN CONTENT -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-6">
+
+    <!-- Top Banner -->
+    <div class="bg-gradient-to-r from-purple-900 to-indigo-900 rounded-2xl p-6 text-white shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <span class="bg-purple-800/80 text-purple-200 text-xs font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">नीति निर्माण एवं हस्तक्षेप डैशबोर्ड</span>
+        <h1 class="text-2xl font-black mt-2">पारिवारिक धारणा व वोकेशनल प्रतिरोध हीटमैप</h1>
+        <p class="text-xs text-purple-200 mt-1 max-w-2xl">
+          यह डैशबोर्ड दिखाता है कि किस जिले और किस ट्रेड में माता-पिता की झिझक सबसे ज्यादा है, ताकि जिला कौशल मिशन (DSMS) जमीनी स्तर पर सटीक काउंसलिंग शिविर आयोजित कर सके।
+        </p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-center shrink-0">
+        <span class="text-[11px] text-purple-200 block">सक्रिय जिले</span>
+        <span class="text-3xl font-black text-white">48 जिले</span>
+        <span class="text-[10px] text-emerald-300 block mt-0.5">4 प्रमुख राज्य (UP, MH, BR, TN)</span>
+      </div>
+    </div>
+
+    <!-- 4 KPI TILES -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white p-4.5 rounded-2xl border border-slate-200 shadow-xs">
+        <span class="text-xs text-slate-500 font-semibold uppercase">कुल पारिवारिक संवाद</span>
+        <div class="text-3xl font-black text-slate-900 mt-1">142 सत्र</div>
+        <p class="text-[11px] text-emerald-600 font-bold mt-1">↑ +24% इस माह</p>
+      </div>
+      <div class="bg-white p-4.5 rounded-2xl border border-slate-200 shadow-xs">
+        <span class="text-xs text-slate-500 font-semibold uppercase">सेंटिमेंट सुधार दर</span>
+        <div class="text-3xl font-black text-emerald-600 mt-1">+48.6%</div>
+        <p class="text-[11px] text-slate-500 mt-1">तथ्यों के बाद आश्वस्त हुए</p>
+      </div>
+      <div class="bg-white p-4.5 rounded-2xl border border-slate-200 shadow-xs">
+        <span class="text-xs text-slate-500 font-semibold uppercase">सीधा समाधान (बिना कॉल)</span>
+        <div class="text-3xl font-black text-blue-600 mt-1">83.4%</div>
+        <p class="text-[11px] text-slate-500 mt-1">AI द्वारा शंका समाधान</p>
+      </div>
+      <div class="bg-white p-4.5 rounded-2xl border border-slate-200 shadow-xs">
+        <span class="text-xs text-slate-500 font-semibold uppercase">लाइव काउंसलर कतार</span>
+        <div class="text-3xl font-black text-amber-600 mt-1">2 केस</div>
+        <p class="text-[11px] text-amber-600 font-bold mt-1">उच्च चिंता स्तर</p>
+      </div>
+    </div>
+
+    <!-- HEATMAP & OBJECTION TAXONOMY ROW -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- OBJECTIONS CHART (5 Cols) -->
+      <div class="lg:col-span-5 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+          <h3 class="font-bold text-sm text-slate-900">माता-पिता के 4 मुख्य विरोध कारण</h3>
+          <span class="text-[11px] text-slate-400">वर्गीकरण</span>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-xs font-bold mb-1">
+              <span class="text-slate-800">1. सामाजिक सम्मान व शादी (Izzat)</span>
+              <span class="text-purple-700">41% (58 परिवार)</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+              <div class="bg-purple-600 h-full w-[41%]"></div>
+            </div>
+            <span class="text-[10px] text-slate-500">चिंता: "छोटा काम है, रिश्ता कौन देगा?"</span>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-bold mb-1">
+              <span class="text-slate-800">2. पगार व भविष्य की वृद्धि (Salary Doubts)</span>
+              <span class="text-blue-700">27% (39 परिवार)</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+              <div class="bg-blue-600 h-full w-[27%]"></div>
+            </div>
+            <span class="text-[10px] text-slate-500">चिंता: "मजदूरी जैसा वेतन, 3 साल बाद क्या?"</span>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-bold mb-1">
+              <span class="text-slate-800">3. बेटियों के लिए सुरक्षा (Female Safety)</span>
+              <span class="text-amber-700">18% (26 परिवार)</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+              <div class="bg-amber-600 h-full w-[18%]"></div>
+            </div>
+            <span class="text-[10px] text-slate-500">चिंता: "गैराज या फैक्ट्री में लड़की कैसे रहेगी?"</span>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-bold mb-1">
+              <span class="text-slate-800">4. डिग्री व आगे की पढ़ाई (Higher Education)</span>
+              <span class="text-emerald-700">14% (19 परिवार)</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+              <div class="bg-emerald-600 h-full w-[14%]"></div>
+            </div>
+            <span class="text-[10px] text-slate-500">चिंता: "क्या भविष्य में डिग्री नहीं मिलेगी?"</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATE & DISTRICT HEATMAP (7 Cols) -->
+      <div class="lg:col-span-7 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+          <h3 class="font-bold text-sm text-slate-900">राज्यवार पारिवारिक प्रतिरोध हॉटस्पॉट तालिका</h3>
+          <span class="text-[11px] bg-red-50 text-red-700 font-bold px-2 py-0.5 rounded">रेड जोन = >60% विरोध</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b border-slate-200 text-slate-500 uppercase text-[10px]">
+                <th class="pb-2">राज्य</th>
+                <th class="pb-2">प्रभावित जिले</th>
+                <th class="pb-2 text-right">प्रतिरोध दर</th>
+                <th class="pb-2 text-right">अनुशंसित नीति कदम</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="py-2">
+                <td class="py-2.5 font-bold text-slate-900">उत्तर प्रदेश</td>
+                <td class="py-2.5 text-slate-600">वाराणसी, गोरखपुर, मिर्जापुर</td>
+                <td class="py-2.5 text-right font-black text-red-600">68%</td>
+                <td class="py-2.5 text-right font-medium text-purple-700">स्थानीय माता-पिता कार्यशाला</td>
+              </tr>
+              <tr class="py-2">
+                <td class="py-2.5 font-bold text-slate-900">महाराष्ट्र</td>
+                <td class="py-2.5 text-slate-600">छत्रपती संभाजीनगर, नांदेड, सोलापूर</td>
+                <td class="py-2.5 text-right font-black text-amber-600">54%</td>
+                <td class="py-2.5 text-right font-medium text-purple-700">टाटा मोटर्स महिला एलुमनाई वीडियो</td>
+              </tr>
+              <tr class="py-2">
+                <td class="py-2.5 font-bold text-slate-900">बिहार</td>
+                <td class="py-2.5 text-slate-600">गया, मुजफ्फरपुर, दरभंगा</td>
+                <td class="py-2.5 text-right font-black text-red-600">74%</td>
+                <td class="py-2.5 text-right font-medium text-purple-700">पंचायत स्तर पर करियर परामर्श रथ</td>
+              </tr>
+              <tr class="py-2">
+                <td class="py-2.5 font-bold text-slate-900">तमिलनाडु</td>
+                <td class="py-2.5 text-slate-600">सेलम, धर्मपुरी, मदुरै</td>
+                <td class="py-2.5 text-right font-black text-emerald-600">42%</td>
+                <td class="py-2.5 text-right font-medium text-purple-700">सोलर रूफटॉप उद्यमिता प्रचार</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- LIVE COUNSELLOR ESCALATION DISPATCH QUEUE -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+      <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+        <div>
+          <h3 class="font-bold text-sm text-slate-900 flex items-center space-x-1.5">
+            <i data-lucide="headset" class="w-4 h-4 text-red-600"></i>
+            <span>लाइव मानवीय काउंसलर डिस्पैच कतार (Live Escalations)</span>
+          </h3>
+          <p class="text-xs text-slate-500">काउंसलर को फोन करने से पहले AI केस ब्रीफ कार्ड उपलब्ध कराया गया है</p>
+        </div>
+        <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-lg">2 परिवार कॉल की प्रतीक्षा में</span>
+      </div>
+
+      <div class="space-y-3">
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-bold text-xs text-slate-900">पाटील परिवार (उम्मीदवार: राहुल पाटील)</span>
+              <span class="text-[10px] bg-red-100 text-red-700 font-bold px-1.5 py-0.5 rounded">चिंता स्तर: 85%</span>
+              <span class="text-[10px] text-slate-400">कोल्हापूर, महाराष्ट्र</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-1">
+              <strong>AI केस सारांश:</strong> माता-पिता कोल्हापुर के किसान हैं। बेटे को सीएनसी मेकाट्रॉनिक्स नहीं करने दे रहे क्योंकि उन्हें लगता है कि फैक्ट्री में काम करने से विवाह के रिश्ते नहीं आएंगे। बीए कराने पर अड़े हैं।
+            </p>
+          </div>
+          <div class="flex items-center space-x-2 shrink-0">
+            <a href="tel:+919822345120" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2 rounded-xl text-xs font-bold flex items-center space-x-1 shadow-xs">
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+              <span>कॉल करें (+91 98223 45120)</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-bold text-xs text-slate-900">यादव परिवार (उम्मीदवार: पूजा यादव)</span>
+              <span class="text-[10px] bg-red-100 text-red-700 font-bold px-1.5 py-0.5 rounded">चिंता स्तर: 92%</span>
+              <span class="text-[10px] text-slate-400">मिर्जापुर, उत्तर प्रदेश</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-1">
+              <strong>AI केस सारांश:</strong> पिता बेटी को ईवी लैब में 15 किमी दूर औद्योगिक क्षेत्र भेजने से डर रहे हैं। उन्हें टाटा/महिंद्रा द्वारा प्रदान की जाने वाली महिला सुरक्षा बस और हॉस्टल सुविधा समझानी है।
+            </p>
+          </div>
+          <div class="flex items-center space-x-2 shrink-0">
+            <a href="tel:+919451288719" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2 rounded-xl text-xs font-bold flex items-center space-x-1 shadow-xs">
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+              <span>कॉल करें (+91 94512 88719)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

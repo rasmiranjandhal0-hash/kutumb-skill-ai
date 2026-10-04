@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KutumbSkill AI | कुटुंब ग्रुप रूम (Joint Family Chat Simulator)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- TOP BAR -->
+  <div class="bg-emerald-800 text-white text-xs font-semibold px-4 py-1.5 flex justify-between items-center tracking-wide">
+    <div class="flex items-center space-x-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+      <span>कुटुंब संवाद कक्ष | पिता + युवा + AI कुटुंब मित्र का संयुक्त विचार-विमर्श</span>
+    </div>
+    <div class="flex items-center space-x-3 text-[11px]">
+      <span class="bg-emerald-900 px-2 py-0.5 rounded">पारिवारिक सामंजस्य मंच</span>
+      <span class="hidden sm:inline">सद्भावना एवं करियर मार्गदर्शन</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand -->
+      <a href="/" class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-700 flex items-center justify-center text-white shadow-md">
+          <i data-lucide="users" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-1.5">
+            <span class="text-xl font-extrabold tracking-tight text-slate-900">कुटुंब<span class="text-emerald-600">Room</span></span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded uppercase">Joint</span>
+          </div>
+          <p class="text-[10px] text-slate-500 font-medium">पिताजी एवं युवा का सीधा संवाद</p>
+        </div>
+      </a>
+
+      <!-- Page Links -->
+      <nav class="hidden md:flex items-center space-x-1 bg-slate-100 p-1 rounded-xl text-xs font-bold">
+        <a href="/" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>परामर्श चैट</span>
+        </a>
+        <a href="/room" class="px-3 py-1.5 rounded-lg bg-white text-emerald-700 shadow-xs flex items-center space-x-1">
+          <i data-lucide="users" class="w-3.5 h-3.5"></i>
+          <span>ग्रुप रूम</span>
+        </a>
+        <a href="/calculator" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+          <span>कैलकुलेटर</span>
+        </a>
+        <a href="/trades" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+          <span>ट्रेड्स</span>
+        </a>
+        <a href="/admin" class="px-3 py-1.5 rounded-lg text-purple-700 hover:bg-purple-50 flex items-center space-x-1">
+          <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+          <span>एडमिन</span>
+        </a>
+      </nav>
+
+      <!-- Action -->
+      <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-xs">
+        <i data-lucide="message-square-text" class="w-3.5 h-3.5"></i>
+        <span>AI चैट पर जाएं</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION TABS -->
+  <div class="md:hidden bg-white border-b border-slate-200 px-3 py-2 flex items-center space-x-1 overflow-x-auto text-xs">
+    <a href="/" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">💬 AI चैट</a>
+    <a href="/room" class="px-3 py-1 rounded-lg font-bold text-emerald-700 bg-emerald-50 whitespace-nowrap">👥 ग्रुप रूम</a>
+    <a href="/calculator" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">⚖️ कैलकुलेटर</a>
+    <a href="/trades" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">📋 ट्रेड्स</a>
+    <a href="/admin" class="px-3 py-1 rounded-lg font-bold text-purple-700 hover:bg-purple-50 whitespace-nowrap">📊 डैशबोर्ड</a>
+  </div>
+
+  <!-- MAIN ROOM CONTAINER -->
+  <main class="flex-1 max-w-4xl w-full mx-auto p-4 sm:p-6 flex flex-col">
+    
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex-1 flex flex-col min-h-[640px]">
+      
+      <div class="border-b border-slate-100 pb-3 flex items-center justify-between">
+        <div>
+          <h1 class="text-base font-extrabold text-slate-900 flex items-center space-x-2">
+            <span>कुटुंब ग्रुप संवाद कक्ष (Joint Family Room)</span>
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">लाइव मध्यस्थता</span>
+          </h1>
+          <p class="text-xs text-slate-500">पिताजी के संशय + युवा की इच्छाएं = AI द्वारा तथ्यों के साथ सामंजस्य</p>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-slate-500 font-bold">ट्रेड:</span>
+          <select id="roomTradeSelect" class="bg-slate-100 border border-slate-300 rounded-lg text-xs font-bold px-2.5 py-1 text-slate-700">
+            <option value="EV">इलेक्ट्रिक वाहन (EV) विशेषज्ञ</option>
+            <option value="Solar">सोलर रूफटॉप (सूर्यमित्र)</option>
+            <option value="CNC">सीएनसी मेकाट्रॉनिक्स</option>
+            <option value="Healthcare">हेल्थकेयर सपोर्ट</option>
+            <option value="IT">आईटी इंफ्रास्ट्रक्चर</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- SPEAKER TOGGLE -->
+      <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 my-3 flex items-center justify-between text-xs">
+        <span class="font-bold text-slate-600">संदेश भेजने वाला चुनें (Speak As):</span>
+        <div class="inline-flex space-x-2 font-bold">
+          <button id="btnParent" onclick="setSpeaker('parent')" class="px-3.5 py-1.5 rounded-lg bg-orange-600 text-white shadow-xs">
+            👨‍🦳 पिताजी (Parent)
+          </button>
+          <button id="btnYouth" onclick="setSpeaker('youth')" class="px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-100">
+            👦 युवा बेटा/बेटी (Youth)
+          </button>
+        </div>
+      </div>
+
+      <!-- MESSAGES SCROLL -->
+      <div id="messagesContainer" class="flex-1 overflow-y-auto space-y-3.5 p-3 max-h-[440px] bg-slate-50/50 rounded-xl border border-slate-100">
+        
+        <!-- MSG 1 (Father) -->
+        <div class="flex items-start space-x-2 max-w-lg">
+          <div class="w-8 h-8 rounded-full bg-orange-600 text-white flex items-center justify-center text-xs font-bold shrink-0">पितृ</div>
+          <div class="bg-orange-50 border border-orange-200 p-3.5 rounded-2xl rounded-tl-none text-xs text-orange-950">
+            <span class="font-bold block text-[10px] text-orange-700 mb-0.5">पिताजी:</span>
+            "बेटा, हमने तुम्हें स्कूल तक पढ़ाया कि तुम बीए-एमए करो और सरकारी क्लर्क की तैयारी करो। ये आईटीआई में मोटर-गाड़ी का काम करने जाओगे तो रिश्तेदार और समाज क्या कहेगा? शादी का अच्छा रिश्ता भी नहीं मिलेगा।"
+          </div>
+        </div>
+
+        <!-- MSG 2 (Youth) -->
+        <div class="flex items-start space-x-2 max-w-lg ml-auto flex-row-reverse">
+          <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold shrink-0 ml-2">युवा</div>
+          <div class="bg-blue-600 text-white p-3.5 rounded-2xl rounded-tr-none text-xs">
+            <span class="font-bold block text-[10px] text-blue-200 mb-0.5">बेटा (राहुल):</span>
+            "पिताजी, हमारे गांव के 4 लड़के बीए करके 4 साल से बेरोजगार घूम रहे हैं। मैं इलेक्ट्रिक वाहन (EV) और बैटरी डायग्नोस्टिक्स का कोर्स करना चाहता हूँ। इसमें कंप्यूटर से काम होता है और कैंपस से ही सीधे नौकरी मिलती है।"
+          </div>
+        </div>
+
+        <!-- MSG 3 (AI Mediator) -->
+        <div class="flex items-start space-x-2 max-w-xl mx-auto my-1">
+          <div class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold shrink-0">KM</div>
+          <div class="bg-white border-2 border-emerald-300 p-4 rounded-2xl text-xs text-slate-800 shadow-xs">
+            <div class="flex items-center justify-between font-bold text-emerald-800 mb-1.5">
+              <span>🤖 कुटुंब मित्र (AI मध्यस्थ):</span>
+              <span class="text-[10px] bg-emerald-100 px-2 py-0.5 rounded">सत्यापित समाधान</span>
+            </div>
+            <p class="leading-relaxed">
+              आदरणीय पिताजी, आपका यह सोचना शत-प्रतिशत सही है कि बेटे को समाज में पूरा मान-सम्मान मिलना चाहिए। लेकिन 2026 में ईवी और सीएनसी जैसे ट्रेड्स पुराने गैराज नहीं, बल्कि <strong>टाटा मोटर्स और महिंद्रा के वातानुकूलित कंप्यूटर लैब्स</strong> में होते हैं।
+            </p>
+            <div class="grid grid-cols-2 gap-2 mt-2 pt-2 border-t border-slate-100 text-[11px]">
+              <div class="bg-slate-50 p-2.5 rounded-lg">
+                <span class="text-slate-500 block">शुरुआती वेतन:</span>
+                <strong class="text-slate-900">₹21,500/माह + PF</strong>
+              </div>
+              <div class="bg-slate-50 p-2.5 rounded-lg">
+                <span class="text-slate-500 block">3 वर्ष में सुपरवाइजर:</span>
+                <strong class="text-emerald-700">₹46,000/माह + B.Voc</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- INPUT BAR -->
+      <div class="pt-3 border-t border-slate-200">
+        <form id="roomForm" onsubmit="handleSend(event)" class="flex items-center space-x-2">
+          <input type="text" id="roomInput" placeholder="पिताजी या युवा के रूप में अपनी बात लिखें..." class="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+          <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-md transition-colors flex items-center space-x-1">
+            <span>भेजें</span>
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          </button>
+          <button type="button" onclick="triggerAiMediation()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-3.5 py-2.5 rounded-xl text-xs shadow-md whitespace-nowrap">
+            🤝 AI सलाह
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+    let currentSpeaker = 'parent';
+
+    function setSpeaker(s) {
+      currentSpeaker = s;
+      const bp = document.getElementById('btnParent');
+      const by = document.getElementById('btnYouth');
+      if (s === 'parent') {
+        bp.className = "px-3.5 py-1.5 rounded-lg bg-orange-600 text-white shadow-xs font-bold";
+        by.className = "px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 font-bold";
+      } else {
+        bp.className = "px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 font-bold";
+        by.className = "px-3.5 py-1.5 rounded-lg bg-blue-600 text-white shadow-xs font-bold";
+      }
+    }
+
+    function handleSend(e) {
+      e.preventDefault();
+      const input = document.getElementById('roomInput');
+      const val = input.value.trim();
+      if (!val) return;
+      input.value = '';
+
+      const container = document.getElementById('messagesContainer');
+      if (currentSpeaker === 'parent') {
+        container.innerHTML += `
+          <div class="flex items-start space-x-2 max-w-lg">
+            <div class="w-8 h-8 rounded-full bg-orange-600 text-white flex items-center justify-center text-xs font-bold shrink-0">पितृ</div>
+            <div class="bg-orange-50 border border-orange-200 p-3.5 rounded-2xl rounded-tl-none text-xs text-orange-950">
+              <span class="font-bold block text-[10px] text-orange-700 mb-0.5">पिताजी:</span>
+              ${escapeHtml(val)}
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML += `
+          <div class="flex items-start space-x-2 max-w-lg ml-auto flex-row-reverse">
+            <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold shrink-0 ml-2">युवा</div>
+            <div class="bg-blue-600 text-white p-3.5 rounded-2xl rounded-tr-none text-xs">
+              <span class="font-bold block text-[10px] text-blue-200 mb-0.5">युवा बेटा/बेटी:</span>
+              ${escapeHtml(val)}
+            </div>
+          </div>
+        `;
+      }
+      container.scrollTop = container.scrollHeight;
+      setTimeout(() => triggerAiMediation(val), 600);
+    }
+
+    async function triggerAiMediation(lastText) {
+      const container = document.getElementById('messagesContainer');
+      const tradeSelect = document.getElementById('roomTradeSelect');
+      const tradeName = tradeSelect ? tradeSelect.options[tradeSelect.selectedIndex].text : 'इलेक्ट्रिक वाहन (EV) विशेषज्ञ';
+      
+      const loaderId = 'loader_' + Date.now();
+      container.innerHTML += `
+        <div id="${loaderId}" class="flex items-center space-x-2 my-2 justify-center text-xs text-slate-500 animate-pulse">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <span>कुटुंब मित्र (AI मध्यस्थ) दोनों पक्षों के लिए समाधान तैयार कर रहा है...</span>
+        </div>
+      `;
+      container.scrollTop = container.scrollHeight;
+
+      let replyText = '';
+      try {
+        const res = await fetch('/api/counselling/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: lastText || 'माता-पिता और युवा के बीच इस ट्रेड को लेकर सहमति कैसे बनाएं?',
+            persona: 'joint',
+            language: 'hi'
+          })
+        });
+        const json = await res.json();
+        if (json.success && json.data && json.data.reply) {
+          replyText = json.data.reply;
+        }
+      } catch (err) {
+        // fallback
+      }
+
+      const loader = document.getElementById(loaderId);
+      if (loader) loader.remove();
+
+      if (!replyText) {
+        replyText = `दोनों पक्षों की चिंता बहुत महत्वपूर्ण है। पिताजी चाहते हैं कि समाज में प्रतिष्ठा और स्थिरता रहे, जबकि युवा चाहता है कि आज की नई तकनीकी क्रांति में आगे बढ़े। <strong>${tradeName}</strong> में शुरुआती वेतन ₹19,000–₹23,500/माह के साथ ईपीएफ, मेडिकल और कंपनी द्वारा B.Voc डिग्री का अवसर मिलता है। इससे पारिवारिक सुरक्षा और युवा के सपने दोनों पूरे होते हैं।`;
+      }
+
+      const formattedReply = replyText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+
+      container.innerHTML += `
+        <div class="flex items-start space-x-2 max-w-xl mx-auto my-1">
+          <div class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold shrink-0">KM</div>
+          <div class="bg-white border-2 border-emerald-300 p-4 rounded-2xl text-xs text-slate-800 shadow-xs">
+            <div class="flex items-center justify-between font-bold text-emerald-800 mb-1.5">
+              <span>🤖 कुटुंब मित्र (AI मध्यस्थ):</span>
+              <span class="text-[10px] bg-emerald-100 px-2 py-0.5 rounded">सत्यापित समाधान</span>
+            </div>
+            <p class="leading-relaxed">
+              ${formattedReply}
+            </p>
+          </div>
+        </div>
+      `;
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function escapeHtml(text) {
+      const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+      return text.replace(/[&<>"']/g, m => map[m]);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KutumbSkill AI | मान्यता प्राप्त ट्रेड्स (Verified Trades Catalog)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- TOP BAR -->
+  <div class="bg-blue-800 text-white text-xs font-semibold px-4 py-1.5 flex justify-between items-center tracking-wide">
+    <div class="flex items-center space-x-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>राष्ट्रीय व्यावसायिक शिक्षा परिषद (NCVET) एवं उद्योग-सत्यापित ट्रेड्स सूची 2026</span>
+    </div>
+    <div class="flex items-center space-x-3 text-[11px]">
+      <span class="bg-blue-900 px-2 py-0.5 rounded">100% सरकारी मान्यता प्राप्त</span>
+      <span class="hidden sm:inline">हेल्पलाइन: 1800-889-2026</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand -->
+      <a href="/" class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-blue-700 flex items-center justify-center text-white shadow-md">
+          <i data-lucide="compass" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-1.5">
+            <span class="text-xl font-extrabold tracking-tight text-slate-900">कुटुंब<span class="text-blue-600">Trades</span></span>
+            <span class="text-xs bg-blue-100 text-blue-800 font-bold px-1.5 py-0.5 rounded uppercase">Verified</span>
+          </div>
+          <p class="text-[10px] text-slate-500 font-medium">उद्योग-प्रमाणित प्लेसमेंट एवं वेतन रिकॉर्ड्स</p>
+        </div>
+      </a>
+
+      <!-- Page Links -->
+      <nav class="hidden md:flex items-center space-x-1 bg-slate-100 p-1 rounded-xl text-xs font-bold">
+        <a href="/" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>परामर्श चैट</span>
+        </a>
+        <a href="/room" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="users" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>ग्रुप रूम</span>
+        </a>
+        <a href="/calculator" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+          <span>कैलकुलेटर</span>
+        </a>
+        <a href="/trades" class="px-3 py-1.5 rounded-lg bg-white text-blue-700 shadow-xs flex items-center space-x-1">
+          <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+          <span>ट्रेड्स</span>
+        </a>
+        <a href="/admin" class="px-3 py-1.5 rounded-lg text-purple-700 hover:bg-purple-50 flex items-center space-x-1">
+          <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+          <span>एडमिन</span>
+        </a>
+      </nav>
+
+      <!-- Action -->
+      <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-xs">
+        <i data-lucide="message-square-text" class="w-3.5 h-3.5"></i>
+        <span>AI से पूछें</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION TABS -->
+  <div class="md:hidden bg-white border-b border-slate-200 px-3 py-2 flex items-center space-x-1 overflow-x-auto text-xs">
+    <a href="/" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">💬 AI चैट</a>
+    <a href="/room" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">👥 ग्रुप रूम</a>
+    <a href="/calculator" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">⚖️ कैलकुलेटर</a>
+    <a href="/trades" class="px-3 py-1 rounded-lg font-bold text-blue-700 bg-blue-50 whitespace-nowrap">📋 ट्रेड्स</a>
+    <a href="/admin" class="px-3 py-1 rounded-lg font-bold text-purple-700 hover:bg-purple-50 whitespace-nowrap">📊 डैशबोर्ड</a>
+  </div>
+
+  <!-- MAIN TRADES CONTENT -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-6">
+
+    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <h1 class="text-xl font-black text-slate-900">सत्यापित उच्च-मांग वोकेशनल ट्रेड्स (Verified Trades)</h1>
+        <p class="text-xs text-slate-500 mt-1">
+          राष्ट्रीय कौशल विकास निगम (NSDC) के सत्यापित प्लेसमेंट आंकड़े। प्रत्येक ट्रेड में शुरुआती पगार, 3 साल की प्रगति और शीर्ष भर्ती कंपनियाँ दी गई हैं।
+        </p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-xs bg-emerald-50 text-emerald-800 font-bold px-3 py-1 rounded-lg border border-emerald-200">
+          औसत प्लेसमेंट दर: 91%
+        </span>
+      </div>
+    </div>
+
+    <!-- 5 TRADES GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      
+      <!-- TRADE 1: EV -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between hover:border-blue-300 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-extrabold bg-blue-100 text-blue-800 px-2 py-0.5 rounded">NSQF Level 4</span>
+            <span class="text-xs font-extrabold text-emerald-600">91.2% प्लेसमेंट</span>
+          </div>
+          <h3 class="font-bold text-base text-slate-900">इलेक्ट्रिक वाहन (EV) सर्विस और बैटरी विशेषज्ञ</h3>
+          <p class="text-xs text-slate-500 mt-0.5">ऑटोमोटिव एवं ग्रीन एनर्जी • 12 महीने (Govt ITI)</p>
+
+          <div class="grid grid-cols-2 gap-2 my-4 bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+            <div>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">शुरुआती वेतन</span>
+              <strong class="text-slate-900 text-sm font-extrabold">₹21,500/माह</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">3 वर्ष बाद वेतन</span>
+              <strong class="text-emerald-700 text-sm font-extrabold">₹46,000/माह</strong>
+            </div>
+          </div>
+
+          <div class="space-y-1.5 text-xs text-slate-600">
+            <div><strong>योग्यता:</strong> 10वीं पास (गणित व विज्ञान)</div>
+            <div><strong>प्रमुख कंपनियाँ:</strong> Tata Motors EV, Ola, Mahindra, Ather</div>
+            <div class="text-[11px] text-blue-800 bg-blue-50 p-2 rounded-lg mt-2">
+              🛡️ <strong>माता-पिता की शंका समाधान:</strong> कंप्यूटर द्वारा डायग्नोस्टिक्स, साफ-सुथरा वर्कशॉप, ग्रीस का काम नहीं।
+            </div>
+          </div>
+        </div>
+
+        <a href="/?trade=TRADE_EV_TECH" class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-xl text-xs text-center shadow-xs block">
+          परिवार संग AI परामर्श शुरू करें
+        </a>
+      </div>
+
+      <!-- TRADE 2: SOLAR -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between hover:border-amber-300 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-extrabold bg-amber-100 text-amber-800 px-2 py-0.5 rounded">NSQF Level 4</span>
+            <span class="text-xs font-extrabold text-emerald-600">89.5% प्लेसमेंट</span>
+          </div>
+          <h3 class="font-bold text-base text-slate-900">सोलर रूफटॉप ग्रिड विशेषज्ञ (सूर्यमित्र)</h3>
+          <p class="text-xs text-slate-500 mt-0.5">अक्षय ऊर्जा एवं विद्युत • 6-12 महीने</p>
+
+          <div class="grid grid-cols-2 gap-2 my-4 bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+            <div>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">शुरुआती वेतन</span>
+              <strong class="text-slate-900 text-sm font-extrabold">₹19,000/माह</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">3 वर्ष बाद वेतन</span>
+              <strong class="text-emerald-700 text-sm font-extrabold">₹41,000/माह</strong>
+            </div>
+          </div>
+
+          <div class="space-y-1.5 text-xs text-slate-600">
+            <div><strong>योग्यता:</strong> 10वीं या 12वीं पास</div>
+            <div><strong>प्रमुख कंपनियाँ:</strong> Tata Power Solar, Adani Solar, Waaree</div>
+            <div class="text-[11px] text-amber-800 bg-amber-50 p-2 rounded-lg mt-2">
+              🛡️ <strong>माता-पिता की शंका समाधान:</strong> PM सूर्य घर योजना के तहत 1 करोड़ घरों में सोलर लगाने का पक्का सरकारी काम।
+            </div>
+          </div>
+        </div>
+
+        <a href="/?trade=TRADE_SOLAR_RENEWABLE" class="mt-4 w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 rounded-xl text-xs text-center shadow-xs block">
+          परिवार संग AI परामर्श शुरू करें
+        </a>
+      </div>
+
+      <!-- TRADE 3: CNC MECHATRONICS -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between hover:border-purple-300 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-extrabold bg-purple-100 text-purple-800 px-2 py-0.5 rounded">NSQF Level 5</span>
+            <span class="text-xs font-extrabold text-emerald-600">94.8% प्लेसमेंट</span>
+          </div>
+          <h3 class="font-bold text-base text-slate-900">सीएनसी कंप्यूटर मशीनिंग एवं मेकाट्रॉनिक्स</h3>
+          <p class="text-xs text-slate-500 mt-0.5">एडवांस्ड मैन्युफैक्चरिंग • 24 महीने (ITI/Polytechnic)</p>
+
+          <div class="grid grid-cols-2 gap-2 my-4 bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+            <div>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">शुरुआती वेतन</span>
+              <strong class="text-slate-900 text-sm font-extrabold">₹23,500/माह</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">3 वर्ष बाद वेतन</span>
+              <strong class="text-emerald-700 text-sm font-extrabold">₹52,000/माह</strong>
+            </div>
+          </div>
+
+          <div class="space-y-1.5 text-xs text-slate-600">
+            <div><strong>योग्यता:</strong> 10वीं पास (विज्ञान व गणित)</div>
+            <div><strong>प्रमुख कंपनियाँ:</strong> L&T Heavy, Bharat Forge, Bosch, Godrej</div>
+            <div class="text-[11px] text-purple-800 bg-purple-50 p-2 rounded-lg mt-2">
+              🛡️ <strong>माता-पिता की शंका समाधान:</strong> जर्मन और जापानी आधुनिक कंप्यूटर मशीन प्रोग्रामिंग, उच्च सामाजिक प्रतिष्ठा।
+            </div>
+          </div>
+        </div>
+
+        <a href="/?trade=TRADE_CNC_MECHATRONICS" class="mt-4 w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded-xl text-xs text-center shadow-xs block">
+          परिवार संग AI परामर्श शुरू करें
+        </a>
+      </div>
+
+      <!-- TRADE 4: HEALTHCARE ALLIED -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between hover:border-emerald-300 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-extrabold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">NSQF Level 4</span>
+            <span class="text-xs font-extrabold text-emerald-600">92.0% प्लेसमेंट</span>
+          </div>
+          <h3 class="font-bold text-base text-slate-900">जनरल ड्यूटी हेल्थकेयर एवं मेडिकल सपोर्ट</h3>
+          <p class="text-xs text-slate-500 mt-0.5">स्वास्थ्य एवं चिकित्सा • 12 महीने</p>
+
+          <div class="grid grid-cols-2 gap-2 my-4 bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+            <div>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">शुरुआती वेतन</span>
+              <strong class="text-slate-900 text-sm font-extrabold">₹18,500/माह</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">3 वर्ष बाद वेतन</span>
+              <strong class="text-emerald-700 text-sm font-extrabold">₹38,000/माह</strong>
+            </div>
+          </div>
+
+          <div class="space-y-1.5 text-xs text-slate-600">
+            <div><strong>योग्यता:</strong> 10वीं या 12वीं पास (कोई भी विषय)</div>
+            <div><strong>प्रमुख कंपनियाँ:</strong> Apollo Hospitals, Max, Fortis, Civil Hospital</div>
+            <div class="text-[11px] text-emerald-800 bg-emerald-50 p-2 rounded-lg mt-2">
+              🛡️ <strong>माता-पिता की शंका समाधान:</strong> समाज में "डॉक्टर साहब के सहयोगी" का सम्मान, सफेद कोट, सुरक्षित अस्पताल माहौल।
+            </div>
+          </div>
+        </div>
+
+        <a href="/?trade=TRADE_HEALTHCARE_GD_ALLIED" class="mt-4 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 rounded-xl text-xs text-center shadow-xs block">
+          परिवार संग AI परामर्श शुरू करें
+        </a>
+      </div>
+
+      <!-- TRADE 5: IT CYBER INFRA -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between hover:border-indigo-300 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-extrabold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded">NSQF Level 4</span>
+            <span class="text-xs font-extrabold text-emerald-600">88.0% प्लेसमेंट</span>
+          </div>
+          <h3 class="font-bold text-base text-slate-900">आईटी इंफ्रास्ट्रक्चर एवं नेटवर्क तकनीशियन (COPA+)</h3>
+          <p class="text-xs text-slate-500 mt-0.5">सूचना प्रौद्योगिकी (IT) • 12 महीने</p>
+
+          <div class="grid grid-cols-2 gap-2 my-4 bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+            <div>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">शुरुआती वेतन</span>
+              <strong class="text-slate-900 text-sm font-extrabold">₹20,000/माह</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">3 वर्ष बाद वेतन</span>
+              <strong class="text-emerald-700 text-sm font-extrabold">₹45,000/माह</strong>
+            </div>
+          </div>
+
+          <div class="space-y-1.5 text-xs text-slate-600">
+            <div><strong>योग्यता:</strong> 10वीं पास</div>
+            <div><strong>प्रमुख कंपनियाँ:</strong> Wipro, TCS iON, HCL, Airtel, Bank IT Centers</div>
+            <div class="text-[11px] text-indigo-800 bg-indigo-50 p-2 rounded-lg mt-2">
+              🛡️ <strong>माता-पिता की शंका समाधान:</strong> कंप्यूटर डेस्क जॉब, एसी ऑफिस, कॉरपोरेट आईडी कार्ड और सुरक्षित माहौल।
+            </div>
+          </div>
+        </div>
+
+        <a href="/?trade=TRADE_IT_CYBER_INFRA" class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 rounded-xl text-xs text-center shadow-xs block">
+          परिवार संग AI परामर्श शुरू करें
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

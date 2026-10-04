@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KutumbSkill AI | भविष्य कैलकुलेटर (Bhavishya Degree vs Trade Visualizer)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- TOP BAR -->
+  <div class="bg-emerald-800 text-white text-xs font-semibold px-4 py-1.5 flex justify-between items-center tracking-wide">
+    <div class="flex items-center space-x-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+      <span>वास्तविक करियर एवं आय तुलना विश्लेषक | National Credit Framework (NCrF) Aligned</span>
+    </div>
+    <div class="flex items-center space-x-3 text-[11px]">
+      <span class="bg-emerald-900 px-2 py-0.5 rounded">सत्यापित प्लेसमेंट डेटा</span>
+      <span class="hidden sm:inline">100% पारदर्शी तुलना</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand -->
+      <a href="/" class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white shadow-md">
+          <i data-lucide="scale" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-1.5">
+            <span class="text-xl font-extrabold tracking-tight text-slate-900">भविष्य<span class="text-emerald-600">Calculator</span></span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded uppercase">ROI</span>
+          </div>
+          <p class="text-[10px] text-slate-500 font-medium">डिग्री बनाम वोकेशनल ट्रेड की वास्तविकता</p>
+        </div>
+      </a>
+
+      <!-- Page Links -->
+      <nav class="hidden md:flex items-center space-x-1 bg-slate-100 p-1 rounded-xl text-xs font-bold">
+        <a href="/" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>परामर्श चैट</span>
+        </a>
+        <a href="/room" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="users" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>ग्रुप रूम</span>
+        </a>
+        <a href="/calculator" class="px-3 py-1.5 rounded-lg bg-white text-emerald-700 shadow-xs flex items-center space-x-1">
+          <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+          <span>कैलकुलेटर</span>
+        </a>
+        <a href="/trades" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1">
+          <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+          <span>ट्रेड्स</span>
+        </a>
+        <a href="/admin" class="px-3 py-1.5 rounded-lg text-purple-700 hover:bg-purple-50 flex items-center space-x-1">
+          <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+          <span>एडमिन</span>
+        </a>
+      </nav>
+
+      <!-- Action -->
+      <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-xs">
+        <i data-lucide="message-square-text" class="w-3.5 h-3.5"></i>
+        <span>AI से बात करें</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION TABS -->
+  <div class="md:hidden bg-white border-b border-slate-200 px-3 py-2 flex items-center space-x-1 overflow-x-auto text-xs">
+    <a href="/" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">💬 AI चैट</a>
+    <a href="/room" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">👥 ग्रुप रूम</a>
+    <a href="/calculator" class="px-3 py-1 rounded-lg font-bold text-emerald-700 bg-emerald-50 whitespace-nowrap">⚖️ कैलकुलेटर</a>
+    <a href="/trades" class="px-3 py-1 rounded-lg font-bold text-slate-600 hover:bg-slate-100 whitespace-nowrap">📋 ट्रेड्स</a>
+    <a href="/admin" class="px-3 py-1 rounded-lg font-bold text-purple-700 hover:bg-purple-50 whitespace-nowrap">📊 डैशबोर्ड</a>
+  </div>
+
+  <!-- MAIN CALCULATOR CONTENT -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-6">
+
+    <!-- INTERACTIVE CALCULATOR CONTROLS -->
+    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+        <div>
+          <span class="text-xs bg-emerald-100 text-emerald-800 font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">लाइव वित्तीय तुलना</span>
+          <h1 class="text-xl font-black text-slate-900 mt-2">भविष्य विज़ुअलाइज़र: सामान्य बीए डिग्री बनाम वोकेशनल ट्रेड</h1>
+          <p class="text-xs text-slate-500 mt-1">ट्रेड और समयावधि चुनें और देखें कि 5 वर्षों में आपके परिवार की बचत और कमाई में क्या अंतर आता है।</p>
+        </div>
+
+        <!-- Trade Selector -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <div>
+            <label class="text-[11px] font-bold text-slate-500 uppercase block mb-1">तुलना के लिए ट्रेड चुनें:</label>
+            <select id="calcTradeSelect" onchange="recalculateRoi()" class="bg-slate-50 border border-slate-300 text-xs font-bold rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <option value="EV" selected>इलेक्ट्रिक वाहन (EV) विशेषज्ञ (₹21,500/माह)</option>
+              <option value="Solar">सोलर रूफटॉप (सूर्यमित्र) (₹19,000/माह)</option>
+              <option value="CNC">सीएनसी स्मार्ट मेकाट्रॉनिक्स (₹23,500/माह)</option>
+              <option value="Healthcare">जनरल ड्यूटी हेल्थकेयर (₹18,500/माह)</option>
+              <option value="IT">आईटी एवं क्लाउड नेटवर्क (₹20,000/माह)</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-[11px] font-bold text-slate-500 uppercase block mb-1">वर्षों का दायरा (Years):</label>
+            <select id="calcYearsSelect" onchange="recalculateRoi()" class="bg-slate-50 border border-slate-300 text-xs font-bold rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <option value="3">3 वर्ष का अंतर</option>
+              <option value="5" selected>5 वर्ष का समग्र अंतर</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIVE ROI SUMMARY BANNER -->
+      <div class="mt-6 bg-gradient-to-r from-emerald-900 to-teal-900 text-white rounded-2xl p-5 shadow-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center sm:text-left">
+          <div class="border-b sm:border-b-0 sm:border-r border-emerald-700/60 pb-3 sm:pb-0 sm:pr-4">
+            <span class="text-[11px] text-emerald-200 uppercase font-semibold">परिवार को कुल शुद्ध वित्तीय लाभ:</span>
+            <div id="statNetGain" class="text-2xl font-black text-amber-300 mt-1">+ ₹8,40,000 अतिरिक्त</div>
+            <span class="text-[10px] text-emerald-300">बीए की तुलना में 5 साल में शुद्ध संचित लाभ</span>
+          </div>
+          <div class="border-b sm:border-b-0 sm:border-r border-emerald-700/60 pb-3 sm:pb-0 sm:pr-4">
+            <span class="text-[11px] text-emerald-200 uppercase font-semibold">पहली कमाई की उम्र:</span>
+            <div id="statFirstSalaryAge" class="text-2xl font-black text-white mt-1">19 वर्ष (वोकेशनल) vs 24+ वर्ष (बीए)</div>
+            <span class="text-[10px] text-emerald-300">5 वर्ष पहले आत्मनिर्भरता</span>
+          </div>
+          <div>
+            <span class="text-[11px] text-emerald-200 uppercase font-semibold">प्लेसमेंट एवं रोजगार दर:</span>
+            <div id="statPlacementDiff" class="text-2xl font-black text-emerald-300 mt-1">91.2% vs 24.5%</div>
+            <span class="text-[10px] text-emerald-300">सरकारी कैंपस रिक्रूटमेंट रिकॉर्ड</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPARISON CARDS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        
+        <!-- PATH A: BA DEGREE -->
+        <div class="border-2 border-red-200 bg-red-50/40 rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-red-100 text-red-800 font-bold text-xs px-2.5 py-1 rounded-full">मार्ग 1: सामान्य बीए डिग्री (BA Non-Technical)</span>
+              <span class="text-xs font-bold text-red-600">उच्च बेरोजगारी जोखिम</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-2">3 साल कॉलेज + परीक्षा की तैयारी</h3>
+            <ul class="space-y-2 text-xs text-slate-700 mt-4">
+              <li class="flex items-start space-x-2">
+                <i data-lucide="x-circle" class="w-4 h-4 text-red-500 shrink-0 mt-0.5"></i>
+                <span>कॉलेज फीस व रहने का खर्च: <strong>₹50,000 - ₹90,000 परिवार पर कर्ज/बोझ</strong></span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <i data-lucide="x-circle" class="w-4 h-4 text-red-500 shrink-0 mt-0.5"></i>
+                <span>22 वर्ष की उम्र तक कमाई: <strong>₹0 (शून्य आमदनी)</strong></span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <i data-lucide="x-circle" class="w-4 h-4 text-red-500 shrink-0 mt-0.5"></i>
+                <span>डिग्री के बाद औसत सैलरी: <strong>₹7,000 - ₹9,000 (या बेरोजगार)</strong></span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <i data-lucide="x-circle" class="w-4 h-4 text-red-500 shrink-0 mt-0.5"></i>
+                <span>सरकारी क्लर्क भर्ती की प्रतीक्षा में 3-4 साल और बर्बाद होने का डर।</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-red-200 bg-white/70 p-3 rounded-xl text-center">
+            <span class="text-[11px] text-slate-500 uppercase font-semibold">अनुमानित संचित कमाई:</span>
+            <div id="statBaEarnings" class="text-xl font-extrabold text-red-600 mt-1">₹1,20,000 (या पारिवारिक ऋण)</div>
+          </div>
+        </div>
+
+        <!-- PATH B: NSQF TECHNICAL TRADE -->
+        <div class="border-2 border-emerald-400 bg-emerald-50/40 rounded-2xl p-5 flex flex-col justify-between shadow-xs">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span id="cardTradeBadge" class="bg-emerald-100 text-emerald-800 font-bold text-xs px-2.5 py-1 rounded-full">मार्ग 2: NSQF वोकेशनल + B.Voc डिग्री</span>
+              <span id="cardTradePlacement" class="text-xs font-bold text-emerald-700">91.2% सरकारी प्रमाणित प्लेसमेंट</span>
+            </div>
+            <h3 id="cardTradeTitle" class="text-base font-bold text-slate-900 mb-2">1-2 साल सरकारी ITI/NSTI ट्रेनिंग</h3>
+            <ul class="space-y-2 text-xs text-slate-700 mt-4">
+              <li class="flex items-start space-x-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span>सरकारी ITI फीस: <strong>नाममात्र (₹1,500 - ₹3,000) + सरकारी छात्रवृत्ति</strong></span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span>19 वर्ष की उम्र में शुरुआती वेतन: <strong id="cardTradeSalary">₹21,500/महीना + PF</strong></span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span>कंपनी में नौकरी करते हुए <strong>B.Voc डिग्री</strong> की मुफ्त सुविधा (NCrF फ्रेमवर्क)</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span>24 वर्ष की उम्र में सुपरवाइजर बनकर <strong id="cardTrade3YrSalary">₹46,000/माह</strong> वेतन।</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-emerald-300 bg-white/70 p-3 rounded-xl text-center">
+            <span class="text-[11px] text-slate-500 uppercase font-semibold">अनुमानित संचित कमाई:</span>
+            <div id="statTradeEarnings" class="text-xl font-extrabold text-emerald-700 mt-1">₹9,60,000 + आत्मनिर्भरता</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROGRESSION LADDER -->
+      <div class="mt-8 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+        <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center space-x-2">
+          <i data-lucide="trending-up" class="w-4 h-4 text-blue-600"></i>
+          <span>NSQF प्रगति सीढ़ी: छात्र कभी नहीं रुकेगा (Continuous Career Ladder)</span>
+        </h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+            <span class="bg-blue-100 text-blue-800 text-[10px] font-extrabold px-2 py-0.5 rounded">स्तर 1: NSQF Level 4 (ITI)</span>
+            <div class="font-bold text-sm text-slate-900 mt-2">जूनियर डायग्नोस्टिक तकनीशियन</div>
+            <div id="ladderL1Sal" class="text-base font-extrabold text-blue-600 mt-1">₹18,000 - ₹24,000/माह</div>
+            <div class="text-xs text-slate-400 mt-0.5">उम्र 19-20 वर्ष</div>
+          </div>
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+            <span class="bg-purple-100 text-purple-800 text-[10px] font-extrabold px-2 py-0.5 rounded">स्तर 2: NSQF Level 5 (डिप्लोमा समकक्ष)</span>
+            <div class="font-bold text-sm text-slate-900 mt-2">सीनियर सिस्टम स्पेशलिस्ट</div>
+            <div id="ladderL2Sal" class="text-base font-extrabold text-purple-700 mt-1">₹30,000 - ₹42,000/माह</div>
+            <div class="text-xs text-slate-400 mt-0.5">उम्र 21-22 वर्ष</div>
+          </div>
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2 py-0.5 rounded">स्तर 3: NSQF Level 7 (B.Voc डिग्री)</span>
+            <div class="font-bold text-sm text-slate-900 mt-2">प्लांट सुपरवाइजर / वर्कशॉप हेड</div>
+            <div id="ladderL3Sal" class="text-base font-extrabold text-emerald-600 mt-1">₹55,000 - ₹85,000/माह</div>
+            <div class="text-xs text-slate-400 mt-0.5">उम्र 23-25 वर्ष</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a id="btnDiscussTrade" href="/?trade=TRADE_EV_TECH" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs flex items-center space-x-2 shadow-md">
+          <span>इस ट्रेड पर परिवार संग AI काउंसलिंग शुरू करें</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="/trades" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-5 py-2.5 rounded-xl text-xs flex items-center space-x-1.5">
+          <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+          <span>अन्य सभी सत्यापित ट्रेड्स देखें</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    const TRADE_DATA = {
+      EV: {
+        id: 'TRADE_EV_TECH',
+        title: 'इलेक्ट्रिक वाहन (EV) सर्विस और बैटरी विशेषज्ञ',
+        salary: 21500,
+        salary3yr: 46000,
+        placement: 91.2,
+        duration: '12 महीने (Govt ITI)'
+      },
+      Solar: {
+        id: 'TRADE_SOLAR_RENEWABLE',
+        title: 'सोलर रूफटॉप ग्रिड विशेषज्ञ (सूर्यमित्र)',
+        salary: 19000,
+        salary3yr: 41000,
+        placement: 89.5,
+        duration: '6-12 महीने'
+      },
+      CNC: {
+        id: 'TRADE_CNC_MECHATRONICS',
+        title: 'सीएनसी प्रिसिजन मशीनिंग व मेकाट्रॉनिक्स',
+        salary: 23500,
+        salary3yr: 52000,
+        placement: 94.8,
+        duration: '24 महीने (ITI / Poly)'
+      },
+      Healthcare: {
+        id: 'TRADE_HEALTHCARE_GD_ALLIED',
+        title: 'जनरल ड्यूटी हेल्थकेयर सपोर्ट विशेषज्ञ',
+        salary: 18500,
+        salary3yr: 38000,
+        placement: 92.0,
+        duration: '12 महीने'
+      },
+      IT: {
+        id: 'TRADE_IT_CYBER_INFRA',
+        title: 'आईटी इंफ्रास्ट्रक्चर एवं नेटवर्क तकनीशियन',
+        salary: 20000,
+        salary3yr: 45000,
+        placement: 88.0,
+        duration: '12 महीने'
+      }
+    };
+
+    function recalculateRoi() {
+      const tradeKey = document.getElementById('calcTradeSelect').value;
+      const years = parseInt(document.getElementById('calcYearsSelect').value, 10);
+      const trade = TRADE_DATA[tradeKey] || TRADE_DATA.EV;
+
+      // Calculate cumulative earnings
+      // Trade student starts working in Year 2 (or Year 1.5)
+      let tradeTotal = 0;
+      let baTotal = 0;
+
+      if (years === 3) {
+        // Trade earns for 2 years (Year 2: starting salary, Year 3: average)
+        tradeTotal = (trade.salary * 12) + (Math.round((trade.salary + trade.salary3yr) / 2) * 12);
+        // BA earns 0 in first 3 years
+        baTotal = 0;
+      } else {
+        // 5 years
+        // Trade earns 4 years: Year 2 (starting), Year 3, Year 4 (3yr rate), Year 5 (3yr rate + 10%)
+        tradeTotal = (trade.salary * 12) + 
+                     (Math.round((trade.salary + trade.salary3yr) / 2) * 12) + 
+                     (trade.salary3yr * 12) + 
+                     (Math.round(trade.salary3yr * 1.15) * 12);
+        // BA earns 0 for 3 years, then ₹8,000/mo for Year 4 and Year 5 (if lucky)
+        baTotal = (8000 * 12) + (9500 * 12);
+      }
+
+      const netGain = tradeTotal - baTotal;
+
+      document.getElementById('statNetGain').innerText = `+ ₹${netGain.toLocaleString('en-IN')} अतिरिक्त`;
+      document.getElementById('statTradeEarnings').innerText = `₹${tradeTotal.toLocaleString('en-IN')} + आत्मनिर्भरता`;
+      document.getElementById('statBaEarnings').innerText = baTotal > 0 ? `₹${baTotal.toLocaleString('en-IN')} (या ऋण)` : `₹0 (शून्य आमदनी)`;
+      document.getElementById('cardTradeTitle').innerText = `${trade.title} (${trade.duration})`;
+      document.getElementById('cardTradeSalary').innerText = `₹${trade.salary.toLocaleString('en-IN')}/महीना + PF`;
+      document.getElementById('cardTrade3YrSalary').innerText = `₹${trade.salary3yr.toLocaleString('en-IN')}/माह`;
+      document.getElementById('cardTradePlacement').innerText = `${trade.placement}% सरकारी प्रमाणित प्लेसमेंट`;
+      document.getElementById('statPlacementDiff').innerText = `${trade.placement}% vs 24.5%`;
+
+      const btn = document.getElementById('btnDiscussTrade');
+      if (btn) btn.href = `/?trade=${trade.id}`;
+    }
+
+    lucide.createIcons();
+    recalculateRoi();
+  </script>
+</body>
+</html>
