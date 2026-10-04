@@ -7,7 +7,6 @@
 [![Node.js Version](https://img.shields.io/badge/Node.js-18%2B-brightgreen)](https://nodejs.org/)
 [![Google Gemini AI](https://img.shields.io/badge/Google%20Gemini-1.5%20%2F%203.1%20Flash-orange)](https://aistudio.google.com/)
 [![NCVET Aligned](https://img.shields.io/badge/NCVET-Aligned-success)](https://www.ncvet.gov.in/)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/rasmiranjandhal0-hash/kutumb-skill-ai)
 
 ---
 
@@ -102,30 +101,6 @@ In India, millions of students finish 10th/12th grade and enroll in 3-year gener
    * Degree vs. Trade Calculator: `http://localhost:5000/degree-vs-trade`
    * Verified Trades Directory: `http://localhost:5000/trades`
    * Policy Desk Dashboard: `http://localhost:5000/admin`
-
----
-
-## 🌐 Deploy to Render (Cloud Hosting)
-
-### 1-Click Deployment
-Click the button below to deploy this repository directly to Render:
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/rasmiranjandhal0-hash/kutumb-skill-ai)
-
-### Manual Setup on Render
-1. Go to [Render Dashboard](https://dashboard.render.com/).
-2. Click **New +** and select **Web Service**.
-3. Connect your GitHub repository (`rasmiranjandhal0-hash/kutumb-skill-ai`).
-4. Enter the configuration:
-   - **Name**: `kutumb-skill-ai`
-   - **Runtime**: `Node`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-   - **Plan**: `Free`
-5. Under **Environment Variables**, add:
-   - `NODE_ENV`: `production`
-   - `GEMINI_API_KEY`: *(paste your Google Gemini API key)*
-6. Click **Deploy Web Service**. Render will build and launch your live application with a free `https://<app-name>.onrender.com` URL.
 
 ---
 
